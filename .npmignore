@@ -1,0 +1,13 @@
+*.DS_Store
+*npm-debug.log
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.js
+.github
+.gitignore
+.prettierrc.json
+coverage
+jsconfig.json
+rollup.config.js
+src
