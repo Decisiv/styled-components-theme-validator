@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          name: Restore Yarn Packag eCache
+          name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - yarn-packages-{{ .Branch }}-
@@ -25,6 +25,9 @@ jobs:
             - node_modules
             - ~/.cache/yarn
           key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Debugging
+          command: ls -la ~/.cache/yarn && ls -la node_modules
       - run:
           name: Linting
           command: yarn lint:ci
