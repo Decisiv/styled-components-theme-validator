@@ -22,7 +22,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Linting
-          command: yarn lint
+          command: yarn lint:ci
       - run:
           name: Tests
           command: yarn test:ci
