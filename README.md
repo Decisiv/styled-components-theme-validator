@@ -1,5 +1,9 @@
 # Styled-Components Theme Validator
 
+[![CircleCI master build](https://img.shields.io/circleci/project/github/Decisiv/styled-components-theme-validator/master.svg)](https://circleci.com/gh/Decisiv/styled-components-theme-validator)
+[![npm version](https://img.shields.io/npm/v/styled-components-theme-validator.svg)](https://www.npmjs.com/package/styled-components-theme-validator)
+[![npm downloads](https://img.shields.io/npm/dt/styled-components-theme-validator.svg)](https://www.npmjs.com/package/styled-components-theme-validator)
+
 When developing libraries which make use of
 [styled-components' theming capabilities](https://www.styled-components.com/docs/advanced#theming),
 it can be useful to validate that the application's theme matches up with the
