@@ -26,9 +26,6 @@ jobs:
             - ~/.cache/yarn
           key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
-          name: Debugging
-          command: ls -la ~/.cache/**/* && ls -la node_modules
-      - run:
           name: Linting
           command: yarn lint:ci
       - run:
