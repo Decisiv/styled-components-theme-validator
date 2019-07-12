@@ -1,0 +1,40 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/styled-components-theme-validator
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ .Branch }}-
+            - yarn-packages-
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+          key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Linting
+          command: yarn lint:ci
+      - run:
+          name: Tests
+          command: yarn test:ci
+      - store_test_results:
+          path: reports/junit
+      - store_artifacts:
+          path: reports/junit
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
