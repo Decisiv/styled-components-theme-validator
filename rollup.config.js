@@ -31,7 +31,11 @@ export default {
     external(),
     url(),
     babel({
+      babelrc: false,
       exclude: 'node_modules/**',
+      plugins: ['external-helpers'],
+      externalHelpers: true,
+      presets: [['env', { modules: false, targets: { ie: 10 } }], 'stage-0'],
     }),
     resolve(),
     commonjs(),
