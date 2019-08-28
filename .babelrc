@@ -3,13 +3,11 @@
     [
       "env",
       {
-        "modules": false,
         "targets": {
           "ie": 10
         }
       }
     ],
     "stage-0"
-  ],
-  "plugins": ["external-helpers"]
+  ]
 }
